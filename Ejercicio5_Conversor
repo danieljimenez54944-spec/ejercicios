@@ -1,0 +1,178 @@
+import java.util.Scanner;
+
+public class Ejercicio5_Conversor {
+
+    static Scanner sc = new Scanner(System.in);
+
+    static double pedirNumero(String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                return Double.parseDouble(sc.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("  ⚠ Ingresa un número válido.");
+            }
+        }
+    }
+
+    // ── Temperatura ───────────────────────────────────────────
+    static void menuTemperatura() {
+        while (true) {
+            System.out.println("\n  -- Temperatura --");
+            System.out.println("  1. Celsius → Fahrenheit");
+            System.out.println("  2. Celsius → Kelvin");
+            System.out.println("  3. Fahrenheit → Celsius");
+            System.out.println("  4. Fahrenheit → Kelvin");
+            System.out.println("  5. Kelvin → Celsius");
+            System.out.println("  6. Kelvin → Fahrenheit");
+            System.out.println("  7. Volver");
+            System.out.print("\nOpción: ");
+            String op = sc.nextLine().trim();
+
+            double v;
+            switch (op) {
+                case "1": v = pedirNumero("  Celsius: ");
+                    System.out.printf("  Resultado: %.2f °F%n", v * 9.0/5 + 32); break;
+                case "2": v = pedirNumero("  Celsius: ");
+                    System.out.printf("  Resultado: %.2f K%n", v + 273.15); break;
+                case "3": v = pedirNumero("  Fahrenheit: ");
+                    System.out.printf("  Resultado: %.2f °C%n", (v - 32) * 5.0/9); break;
+                case "4": v = pedirNumero("  Fahrenheit: ");
+                    System.out.printf("  Resultado: %.2f K%n", (v - 32) * 5.0/9 + 273.15); break;
+                case "5": v = pedirNumero("  Kelvin: ");
+                    System.out.printf("  Resultado: %.2f °C%n", v - 273.15); break;
+                case "6": v = pedirNumero("  Kelvin: ");
+                    System.out.printf("  Resultado: %.2f °F%n", (v - 273.15) * 9.0/5 + 32); break;
+                case "7": return;
+                default: System.out.println("  ⚠ Opción inválida.");
+            }
+        }
+    }
+
+    // ── Longitud ──────────────────────────────────────────────
+    static void menuLongitud() {
+        while (true) {
+            System.out.println("\n  -- Longitud --");
+            System.out.println("  1. Metros → Kilómetros");
+            System.out.println("  2. Metros → Millas");
+            System.out.println("  3. Kilómetros → Metros");
+            System.out.println("  4. Kilómetros → Millas");
+            System.out.println("  5. Millas → Metros");
+            System.out.println("  6. Millas → Kilómetros");
+            System.out.println("  7. Volver");
+            System.out.print("\nOpción: ");
+            String op = sc.nextLine().trim();
+
+            double v;
+            switch (op) {
+                case "1": v = pedirNumero("  Metros: ");
+                    System.out.printf("  Resultado: %.4f km%n", v / 1000); break;
+                case "2": v = pedirNumero("  Metros: ");
+                    System.out.printf("  Resultado: %.6f mi%n", v * 0.000621371); break;
+                case "3": v = pedirNumero("  Kilómetros: ");
+                    System.out.printf("  Resultado: %.2f m%n", v * 1000); break;
+                case "4": v = pedirNumero("  Kilómetros: ");
+                    System.out.printf("  Resultado: %.4f mi%n", v * 0.621371); break;
+                case "5": v = pedirNumero("  Millas: ");
+                    System.out.printf("  Resultado: %.2f m%n", v * 1609.34); break;
+                case "6": v = pedirNumero("  Millas: ");
+                    System.out.printf("  Resultado: %.4f km%n", v * 1.60934); break;
+                case "7": return;
+                default: System.out.println("  ⚠ Opción inválida.");
+            }
+        }
+    }
+
+    // ── Peso ──────────────────────────────────────────────────
+    static void menuPeso() {
+        while (true) {
+            System.out.println("\n  -- Peso --");
+            System.out.println("  1. Kilogramos → Libras");
+            System.out.println("  2. Kilogramos → Onzas");
+            System.out.println("  3. Libras → Kilogramos");
+            System.out.println("  4. Libras → Onzas");
+            System.out.println("  5. Onzas → Kilogramos");
+            System.out.println("  6. Onzas → Libras");
+            System.out.println("  7. Volver");
+            System.out.print("\nOpción: ");
+            String op = sc.nextLine().trim();
+
+            double v;
+            switch (op) {
+                case "1": v = pedirNumero("  Kilogramos: ");
+                    System.out.printf("  Resultado: %.4f lb%n", v * 2.20462); break;
+                case "2": v = pedirNumero("  Kilogramos: ");
+                    System.out.printf("  Resultado: %.4f oz%n", v * 35.274); break;
+                case "3": v = pedirNumero("  Libras: ");
+                    System.out.printf("  Resultado: %.4f kg%n", v / 2.20462); break;
+                case "4": v = pedirNumero("  Libras: ");
+                    System.out.printf("  Resultado: %.2f oz%n", v * 16); break;
+                case "5": v = pedirNumero("  Onzas: ");
+                    System.out.printf("  Resultado: %.4f kg%n", v / 35.274); break;
+                case "6": v = pedirNumero("  Onzas: ");
+                    System.out.printf("  Resultado: %.4f lb%n", v / 16); break;
+                case "7": return;
+                default: System.out.println("  ⚠ Opción inválida.");
+            }
+        }
+    }
+
+    // ── Tiempo ────────────────────────────────────────────────
+    static void menuTiempo() {
+        while (true) {
+            System.out.println("\n  -- Tiempo --");
+            System.out.println("  1. Segundos → Minutos");
+            System.out.println("  2. Segundos → Horas");
+            System.out.println("  3. Minutos → Segundos");
+            System.out.println("  4. Minutos → Horas");
+            System.out.println("  5. Horas → Segundos");
+            System.out.println("  6. Horas → Minutos");
+            System.out.println("  7. Volver");
+            System.out.print("\nOpción: ");
+            String op = sc.nextLine().trim();
+
+            double v;
+            switch (op) {
+                case "1": v = pedirNumero("  Segundos: ");
+                    System.out.printf("  Resultado: %.4f min%n", v / 60); break;
+                case "2": v = pedirNumero("  Segundos: ");
+                    System.out.printf("  Resultado: %.4f h%n", v / 3600); break;
+                case "3": v = pedirNumero("  Minutos: ");
+                    System.out.printf("  Resultado: %.2f s%n", v * 60); break;
+                case "4": v = pedirNumero("  Minutos: ");
+                    System.out.printf("  Resultado: %.4f h%n", v / 60); break;
+                case "5": v = pedirNumero("  Horas: ");
+                    System.out.printf("  Resultado: %.2f s%n", v * 3600); break;
+                case "6": v = pedirNumero("  Horas: ");
+                    System.out.printf("  Resultado: %.2f min%n", v * 60); break;
+                case "7": return;
+                default: System.out.println("  ⚠ Opción inválida.");
+            }
+        }
+    }
+
+    // ── Menú principal ────────────────────────────────────────
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("\n==============================");
+            System.out.println("  CONVERSOR DE UNIDADES");
+            System.out.println("==============================");
+            System.out.println("  1. Temperatura");
+            System.out.println("  2. Longitud");
+            System.out.println("  3. Peso");
+            System.out.println("  4. Tiempo");
+            System.out.println("  5. Salir");
+            System.out.print("\nOpción: ");
+            String op = sc.nextLine().trim();
+
+            switch (op) {
+                case "1": menuTemperatura(); break;
+                case "2": menuLongitud(); break;
+                case "3": menuPeso(); break;
+                case "4": menuTiempo(); break;
+                case "5": System.out.println("\n  ¡Hasta luego!"); return;
+                default:  System.out.println("  ⚠ Opción inválida.");
+            }
+        }
+    }
+}
